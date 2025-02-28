@@ -33,3 +33,6 @@ class Bike(Vehicle):
     
 car = Car("Toyota", "Corolla", 2020, 50, 5)
 bike = Bike("Yamaha", "R1", 2019, 30, 998)
+# Display details
+car.display_info()
+bike.display_info()
