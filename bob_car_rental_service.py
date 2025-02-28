@@ -36,3 +36,6 @@ bike = Bike("Yamaha", "R1", 2019, 30, 998)
 # Display details
 car.display_info()
 bike.display_info()
+# Calculate rental costs for a given number of days
+def display_rent(v,days):
+    print(f"Rental cost for {v.brand} {v.model} for {days} days: ${days*v.get_rental_price()}")
