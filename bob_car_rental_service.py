@@ -39,3 +39,12 @@ bike.display_info()
 # Calculate rental costs for a given number of days
 def display_rent(v,days):
     print(f"Rental cost for {v.brand} {v.model} for {days} days: ${days*v.get_rental_price()}")
+
+display_rent(car,3)
+display_rent(bike,7)
+
+def modify(v,new):
+    v.set_rental_price(new)
+    print(f"Updated rental price for {v.brand} {v.model}: ${v.get_rental_price()}/day")
+    
+modify(car,100)
