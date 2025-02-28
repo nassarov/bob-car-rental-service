@@ -21,7 +21,7 @@ class Car(Vehicle):
         self.seating_capacity = seating_capacity
 
     def display_info(self):
-        return print(f"Car :{self.brand} {self.model}, Year: {self.year}, Seats: {self.seating_capacity}, Rental Price: ${self.rental_price_per_day}/day")
+        return print(f"Car :{self.brand} {self.model}, Year: {self.year}, Seats: {self.seating_capacity}, Rental Price: ${self.get_rental_price()}/day")
 
 class Bike(Vehicle):
     def __init__(self,brand,model,year,rental_price_per_day,engine_capacity):
@@ -29,7 +29,7 @@ class Bike(Vehicle):
         self.engine_capacity = engine_capacity
 
     def display_info(self):
-        return print(f"Bike :{self.brand} {self.model}, Year: {self.year}, Engine: {self.engine_capacity}cc, Rental Price: ${self.rental_price_per_day}/day")
+        return print(f"Bike :{self.brand} {self.model}, Year: {self.year}, Engine: {self.engine_capacity}cc, Rental Price: ${self.get_rental_price()}/day")
     
 car = Car("Toyota", "Corolla", 2020, 50, 5)
 bike = Bike("Yamaha", "R1", 2019, 30, 998)
