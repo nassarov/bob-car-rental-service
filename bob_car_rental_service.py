@@ -128,6 +128,15 @@ admin_dict  = {
     "password" : "123admin"
 }
 
+def admin_prompt():
+    print("\nWELCOME Admin:")
+    print("---------------")
+    print("Enter 1 to add new vehicle: ")
+    print("Enter 2 to modify vehicle price: ")
+    print("Enter 3 to view clients' list: ")
+    print("Enter 5 to exit admin mode: ")
+    return input("Choice: ").strip()[0]
+
 #  Vehicles
 cars = [Car("Toyota", "Corolla", 2020, 50, 5),Car("Nissan","Sunny",2018,40,5)]
 bikes = [Bike("Yamaha", "R1", 2019, 30, 998)]
