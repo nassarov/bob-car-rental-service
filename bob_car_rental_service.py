@@ -30,9 +30,7 @@ class Bike(Vehicle):
 
     def display_info(self):
         return print(f"Bike :{self.brand} {self.model}, Year: {self.year}, Engine: {self.engine_capacity}cc, Rental Price: ${self.get_rental_price()}/day")
-    
-car = Car("Toyota", "Corolla", 2020, 50, 5)
-bike = Bike("Yamaha", "R1", 2019, 30, 998)
+
 # Display details
 car.display_info()
 bike.display_info()
@@ -98,6 +96,9 @@ def prompt():
     print("Enter 5 to exit")
     return input("Choice: ").strip()
 
+#  Vehicles
+cars = [Car("Toyota", "Corolla", 2020, 50, 5),Car("Nissan","Sunny",2018,40,5)]
+bikes = [Bike("Yamaha", "R1", 2019, 30, 998)]
 
 # Program inputs and results
 action = None
