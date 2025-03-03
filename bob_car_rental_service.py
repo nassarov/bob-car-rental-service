@@ -47,6 +47,16 @@ def modify(v,new):
     v.set_rental_price(new)
     print(f"Updated rental price for {v.brand} {v.model}: ${v.get_rental_price()}/day")
     
+
+def prompt():
+    print("\nWELCOME To Bob's Rental Service!!!\n")
+    print("Enter 1 to view available cars")
+    print("Enter 2 to view available bikes")
+    print("Enter \"admin\" for admin only")
+    print("Enter 5 to exit")
+    return input("Choice: ").strip()
+
+
 # Program inputs and results
 action = None
 while action != "5":
