@@ -41,10 +41,17 @@ def display_rent(v,days):
     print(f"Rental cost for {v.brand} {v.model} for {days} days: ${days*v.get_rental_price()}")
 
 display_rent(car,3)
-display_rent(bike,7)
+display_rent(bike,2)
 
 def modify(v,new):
     v.set_rental_price(new)
     print(f"Updated rental price for {v.brand} {v.model}: ${v.get_rental_price()}/day")
     
-modify(car,100)
+# Program inputs and results
+action = None
+while action != "5":
+    action = prompt()
+    match action:  # there is no switch case in python
+        case "1" :
+            selected = viewVehicle(cars,1)
+            selectionProcess(cars, selected)
