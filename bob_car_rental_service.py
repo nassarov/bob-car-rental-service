@@ -31,15 +31,21 @@ class Bike(Vehicle):
     def display_info(self):
         return print(f"Bike :{self.brand} {self.model}, Year: {self.year}, Engine: {self.engine_capacity}cc, Rental Price: ${self.get_rental_price()}/day")
 
-# Display details
-car.display_info()
-bike.display_info()
+class Client: 
+    def __init__(self,name,phone,car,days,total_price):
+        self.name = name
+        self.phone = phone
+        self.car = car
+        self.days = days
+        self.total_price = total_price
+
+    def display_info(self):
+        print(f"=> Client Name: {self.name} ,PhoneNumber: {self.phone}, Rented: {self.car} for {self.days} days")
+    
 # Calculate rental costs for a given number of days
 def display_rent(v,days):
     print(f"Rental cost for {v.brand} {v.model} for {days} days: ${days*v.get_rental_price()}")
 
-display_rent(car,3)
-display_rent(bike,2)
 
 def modify(v,new):
     v.set_rental_price(new)
