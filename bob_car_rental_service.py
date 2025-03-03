@@ -137,6 +137,48 @@ def admin_prompt():
     print("Enter 5 to exit admin mode: ")
     return input("Choice: ").strip()[0]
 
+# Admin validation
+def validation():
+    name = input("Enter username: ").strip()
+    password = input("Enter your password: ").strip()
+    if (name == admin_dict["user_name"] and password == admin_dict["password"]):
+        while True:
+            action = admin_prompt()
+            if action =="5":
+                break
+            if action == "1":
+                vehicle = input("What type of vehilce:\n(1) for Cars | (2) for Bikes: ").strip()[0]
+                while int(vehicle) > 2:
+                    vehicle = input("Enter a valid option: 1 Or 2 ").strip()[0]
+                if vehicle == "1":
+                    addVehicle(cars,"c")
+                    viewVehicle(cars,0)
+                    print("Successfully Added!!!")
+                elif vehicle == "2":
+                    addVehicle(bikes,"b")
+                    viewVehicle(bikes,0)
+                    print("Successfully Added!!!")
+            elif action =="2":
+                vehicle = input("What type of vehilce:\n(1) for Cars | (2) for Bikes: ").strip()[0]
+                while int(vehicle) > 2:
+                    vehicle = input("Enter a valid option: 1 Or 2 ").strip()[0]
+                if vehicle == "1":
+                    selected = viewVehicle(cars,1)
+                    new_price = int(input("Enter the new price: "))
+                    modify(selected,new_price)
+                    print("Price modified!!!")
+                elif vehicle == "2":
+                    selected = viewVehicle(bikes,1)
+                    new_price = int(input("Enter the new price: "))
+                    modify(selected,new_price)
+                    print("Price modified!!!")
+                
+            elif action =="3":
+                displayClients()
+    else:
+        print("Wrong username or password !!!")
+        
+        
 #  Vehicles
 cars = [Car("Toyota", "Corolla", 2020, 50, 5),Car("Nissan","Sunny",2018,40,5)]
 bikes = [Bike("Yamaha", "R1", 2019, 30, 998)]
