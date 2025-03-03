@@ -137,6 +137,21 @@ def admin_prompt():
     print("Enter 5 to exit admin mode: ")
     return input("Choice: ").strip()[0]
 
+def addVehicle(type,symbol):
+    #brand,model,year,rental_price_per_day,seating_capacity)
+    brand = input("Enter Brand Name: ")
+    model = input("Enter Model Name: ")
+    year = input("Enter Year: ")
+    rental_price_per_day = int(input("Enter Price/Day: "))
+    if symbol == "c":
+        seating_capacity = input("Enter Seating Capacity: ")
+        car = Car(brand,model,year,rental_price_per_day,seating_capacity)
+        cars.append(car)
+    elif symbol == "b":
+        engine_capacity = input("Enter Engine Capacity: ")
+        bike = Bike(brand,model,year,rental_price_per_day,engine_capacity)
+        bikes.append(bike)
+
 # Admin validation
 def validation():
     name = input("Enter username: ").strip()
@@ -178,7 +193,7 @@ def validation():
     else:
         print("Wrong username or password !!!")
         
-        
+
 #  Vehicles
 cars = [Car("Toyota", "Corolla", 2020, 50, 5),Car("Nissan","Sunny",2018,40,5)]
 bikes = [Bike("Yamaha", "R1", 2019, 30, 998)]
