@@ -45,6 +45,8 @@ def modify(v,new):
     v.set_rental_price(new)
     print(f"Updated rental price for {v.brand} {v.model}: ${v.get_rental_price()}/day")
 
+clients = []  # store our clients
+
 # Selection
 def selectionProcess(cars, selected):
     if selected:
@@ -78,8 +80,7 @@ def printReceipt(car,days,price):
     print(f"Total Rental Price: ${price}")
     print("###############")
 
-    new_client = Client(name,phone,car,days,price)
-    clients.append(new_client)
+    
 
 # Viewing vehicles available and letting user to choose 
 def viewVehicle(type,flag):
@@ -102,6 +103,9 @@ def viewVehicle(type,flag):
         print("\nNo more available vehicles right now please come back later!!")
         print("-----------------------------")
     
+# Remove from available list
+def removeVehicle(type,selected):
+    type.remove(selected)
 
 def prompt():
     print("\nWELCOME To Bob's Rental Service!!!\n")
