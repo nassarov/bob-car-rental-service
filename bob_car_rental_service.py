@@ -89,6 +89,18 @@ def printReceipt(car,days,price):
     new_client = Client(name,phone,car,days,price)
     clients.append(new_client)
 
+# Display clients
+def displayClients():
+    if len(clients) !=0:
+        print("Our Clients:")
+        print("#########")
+        for cl in clients:
+            cl.display_info()
+            print("--------------")
+
+    else:
+        print("\nNo clients yet !!!")
+
 # Viewing vehicles available and letting user to choose 
 def viewVehicle(type,flag):
     if len(type)!=0:
