@@ -121,6 +121,13 @@ def prompt():
     print("Enter 5 to exit")
     return input("Choice: ").strip()
 
+
+# Admin dict 
+admin_dict  = {
+    "user_name" : "admin123",
+    "password" : "123admin"
+}
+
 #  Vehicles
 cars = [Car("Toyota", "Corolla", 2020, 50, 5),Car("Nissan","Sunny",2018,40,5)]
 bikes = [Bike("Yamaha", "R1", 2019, 30, 998)]
