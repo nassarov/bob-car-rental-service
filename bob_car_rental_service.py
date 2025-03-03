@@ -46,7 +46,28 @@ display_rent(bike,2)
 def modify(v,new):
     v.set_rental_price(new)
     print(f"Updated rental price for {v.brand} {v.model}: ${v.get_rental_price()}/day")
-    
+
+# Selection
+def selectionProcess(cars, selected):
+    if selected:
+                print("===========================")
+                print(f"You selected {selected.brand} {selected.model} {selected.year} for ${selected.get_rental_price()}/day")
+                print("===========================")
+                days = int(input("Enter how many days you want to rent it: "))
+                while days <=0:
+                    days = int(input("You need to rent it at least for 1 day. Enter number of days: "))
+                print("===========================")
+                display_rent(selected,days)
+                agree = input(f"Are you sure you want to rent this vehicle? [(Y)for YES (N)for NO]:")
+                if agree[0].lower() == "y":
+                    total = selected.get_rental_price()*days
+                    car = f"{selected.brand} {selected.model} {selected.year}"
+                    printReceipt(car,days,total)
+                    removeVehicle(cars,selected)
+                    action =None
+                else:
+                    action ="5"
+
 # Viewing vehicles available and letting user to choose 
 def viewVehicle(type,flag):
     if len(type)!=0:
@@ -68,7 +89,7 @@ def viewVehicle(type,flag):
         print("\nNo more available vehicles right now please come back later!!")
         print("-----------------------------")
     
-    
+
 def prompt():
     print("\nWELCOME To Bob's Rental Service!!!\n")
     print("Enter 1 to view available cars")
