@@ -66,6 +66,18 @@ def selectionProcess(cars, selected):
                 else:
                     action ="5"
 
+# Print the final receipt details + adding client to client list
+def printReceipt(car,days,price):
+    name = input("Please enter your Full Name: ")
+    phone = input("Please enter your Phone Number: ")
+    print("###############")
+    print("Car Rent Receipt: \n")
+    print(f"Mr/Mrs.{name}\nRented: {car}\nDuration: {days} days.")
+    print(f"Phone Number: {phone}.\n")
+    print("-------------------")
+    print(f"Total Rental Price: ${price}")
+    print("###############")
+
 # Viewing vehicles available and letting user to choose 
 def viewVehicle(type,flag):
     if len(type)!=0:
