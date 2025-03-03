@@ -55,3 +55,10 @@ while action != "5":
         case "1" :
             selected = viewVehicle(cars,1)
             selectionProcess(cars, selected)
+        case "2":
+            selected = viewVehicle(bikes,1)
+            selectionProcess(bikes, selected)
+        case "admin":
+            validation()
+
+print("\nDrive Safe, Bye!!!\n")
