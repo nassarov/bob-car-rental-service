@@ -78,6 +78,9 @@ def printReceipt(car,days,price):
     print(f"Total Rental Price: ${price}")
     print("###############")
 
+    new_client = Client(name,phone,car,days,price)
+    clients.append(new_client)
+
 # Viewing vehicles available and letting user to choose 
 def viewVehicle(type,flag):
     if len(type)!=0:
