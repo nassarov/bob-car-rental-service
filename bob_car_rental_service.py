@@ -47,7 +47,28 @@ def modify(v,new):
     v.set_rental_price(new)
     print(f"Updated rental price for {v.brand} {v.model}: ${v.get_rental_price()}/day")
     
-
+# Viewing vehicles available and letting user to choose 
+def viewVehicle(type,flag):
+    if len(type)!=0:
+        print("\nAvailable:")
+        print("-------------------")
+        i = 1
+        for vehicle in type:
+            print(f"{i}.",end=" ")# print on same line
+            vehicle.display_info()
+            i+=1
+        if flag == 0:
+            return None
+        selected = int(input("\nSelect car number you want: ")) - 1 
+        if selected == -1:
+            return None
+        elif 0<= selected <len(type):
+            return type[selected]
+    else: # list empty
+        print("\nNo more available vehicles right now please come back later!!")
+        print("-----------------------------")
+    
+    
 def prompt():
     print("\nWELCOME To Bob's Rental Service!!!\n")
     print("Enter 1 to view available cars")
