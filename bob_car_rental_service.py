@@ -1,3 +1,4 @@
+# Classes :
 class Vehicle:
     def __init__(self, brand, model, year, rental_price_per_day):
         self.brand = brand
@@ -14,7 +15,7 @@ class Vehicle:
         return self.__rental_price_per_day
     def set_rental_price(self,price):
         self.__rental_price_per_day = price
-        
+# class Car
 class Car(Vehicle):
     def __init__(self,brand,model,year,rental_price_per_day,seating_capacity):
         super().__init__(brand,model,year,rental_price_per_day)
@@ -22,7 +23,7 @@ class Car(Vehicle):
 
     def display_info(self):
         return print(f"Car :{self.brand} {self.model}, Year: {self.year}, Seats: {self.seating_capacity}, Rental Price: ${self.get_rental_price()}/day")
-
+# class Bike
 class Bike(Vehicle):
     def __init__(self,brand,model,year,rental_price_per_day,engine_capacity):
         super().__init__(brand,model,year,rental_price_per_day)
@@ -30,7 +31,7 @@ class Bike(Vehicle):
 
     def display_info(self):
         return print(f"Bike :{self.brand} {self.model}, Year: {self.year}, Engine: {self.engine_capacity}cc, Rental Price: ${self.get_rental_price()}/day")
-
+# class Client
 class Client: 
     def __init__(self,name,phone,car,days,total_price):
         self.name = name
@@ -42,16 +43,47 @@ class Client:
     def display_info(self):
         print(f"=> Client Name: {self.name} ,PhoneNumber: {self.phone}, Rented: {self.car} for {self.days} days")
     
+# Lists
+clients = []  # store our clients
+#  Vehicles
+cars = [Car("Toyota", "Corolla", 2020, 50, 5),Car("Nissan","Sunny",2018,40,5)]
+bikes = [Bike("Yamaha", "R1", 2019, 30, 998)]
+
+
+# Start FUNCTIONS:
+
+# -> user :
+# ---------------
 # Calculate rental costs for a given number of days
 def display_rent(v,days):
     print(f"Rental cost for {v.brand} {v.model} for {days} days: ${days*v.get_rental_price()}")
 
-
+# Modify the price of selected vehicle by admin
 def modify(v,new):
     v.set_rental_price(new)
     print(f"Updated rental price for {v.brand} {v.model}: ${v.get_rental_price()}/day")
 
-clients = []  # store our clients
+# Viewing vehicles available and letting user to choose 
+def viewVehicle(type,flag):
+    if len(type)!=0:
+        print("\nAvailable:")
+        print("-------------------")
+        i = 1
+        for vehicle in type:
+            print(f"{i}.",end=" ")# print on same line
+            vehicle.display_info()
+            i+=1
+        if flag == 0:
+            return None
+        selected = int(input("\nSelect car number you want: ")) - 1 
+        if selected == -1:
+            return None
+        elif 0<= selected <len(type):
+            return type[selected]
+    else: # list empty
+        print("\nNo more available vehicles right now please come back later!!")
+        print("-----------------------------")
+    
 
 # Selection
 def selectionProcess(cars, selected):
@@ -89,6 +121,20 @@ def printReceipt(car,days,price):
     new_client = Client(name,phone,car,days,price)
     clients.append(new_client)
 
+# Remove from available list
+def removeVehicle(type,selected):
+    type.remove(selected)
+
+# end user section
+
+# -> admin:
+# ---------------
+# Admin dict 
+admin_dict  = {
+    "user_name" : "admin123",
+    "password" : "123admin"
+}
+
 # Display clients
 def displayClients():
     if len(clients) !=0:
@@ -101,45 +147,6 @@ def displayClients():
     else:
         print("\nNo clients yet !!!")
 
-# Viewing vehicles available and letting user to choose 
-def viewVehicle(type,flag):
-    if len(type)!=0:
-        print("\nAvailable:")
-        print("-------------------")
-        i = 1
-        for vehicle in type:
-            print(f"{i}.",end=" ")# print on same line
-            vehicle.display_info()
-            i+=1
-        if flag == 0:
-            return None
-        selected = int(input("\nSelect car number you want: ")) - 1 
-        if selected == -1:
-            return None
-        elif 0<= selected <len(type):
-            return type[selected]
-    else: # list empty
-        print("\nNo more available vehicles right now please come back later!!")
-        print("-----------------------------")
-    
-# Remove from available list
-def removeVehicle(type,selected):
-    type.remove(selected)
-
-def prompt():
-    print("\nWELCOME To Bob's Rental Service!!!\n")
-    print("Enter 1 to view available cars")
-    print("Enter 2 to view available bikes")
-    print("Enter \"admin\" for admin only")
-    print("Enter 5 to exit")
-    return input("Choice: ").strip()
-
-
-# Admin dict 
-admin_dict  = {
-    "user_name" : "admin123",
-    "password" : "123admin"
-}
 
 def admin_prompt():
     print("\nWELCOME Admin:")
@@ -206,10 +213,17 @@ def validation():
     else:
         print("Wrong username or password !!!")
         
+# end admin section
 
-#  Vehicles
-cars = [Car("Toyota", "Corolla", 2020, 50, 5),Car("Nissan","Sunny",2018,40,5)]
-bikes = [Bike("Yamaha", "R1", 2019, 30, 998)]
+# program prompt
+def prompt():
+    print("\nWELCOME To Bob's Rental Service!!!\n")
+    print("Enter 1 to view available cars")
+    print("Enter 2 to view available bikes")
+    print("Enter \"admin\" for admin only")
+    print("Enter 5 to exit")
+    return input("Choice: ").strip()
+# End Program FUNCTIONS:
 
 # Program inputs and results
 action = None
